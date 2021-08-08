@@ -7,14 +7,78 @@
     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="js/jquery-3.3.1.js"></script>
+    <style>
+        body{
+            padding: 2em;
+        }
+    </style>
 
 </head>
-<body>
+<body>    
     
+    <h1>curso Jquery</h1> 
     
-    <h1>curso Jquery</h1>   
-    
-    
+    <div id="vanillajs">
+        <h2>javascript puro</h2>
+        <button class="btn" id="btn-vanilla">botao 1 - vanilla</button>
+        <button class="btn">botao 2 - vanilla</button>
+        <button class="btn">botao 3 - vanilla</button>
+    </div>
+
+    <hr>
+
+    <div id="jq">
+        <h2>javascript com jquery</h2>
+        <button class="btn">botao 1 - jq</button>
+        <button class="btn">botao 2 - jq</button>
+        <button class="btn">botao 3 - jq</button>
+    </div>
+
+    <hr>
+
+    <div id="output"></div>
+
+      
+    <script>
+        /*js puro*/
+        const output = document.querySelector('#output');
+
+        const btn1_vanilla = document.querySelector('#btn-vanilla');
+        btn1_vanilla.addEventListener('click', function(){
+            let str = this.textContent;
+            output.textContent = str;
+        })
+
+        const btns_vanilla = document.querySelectorAll('#vanillajs .btn');
+        btns_vanilla.forEach(function(btn){
+            btn.addEventListener('click', function(){
+                let str = this.textContent;
+                output.textContent = str;
+            })
+        })
+
+
+
+
+
+
+        /*utilizando o jquery*/
+        const $output = $('#output')
+
+        const btn1_jq = $('#btn-jq');
+
+        btn1_jq.on('click', function(){
+            let str = $(this).text()
+            $output.text(str)
+        })
+
+        const btns_jq = $('#jq .btn')
+
+        btns_jq.on('click', function(){
+            let str = $(this).text()
+            $output.text(str)
+        })
+    </script>
     
 </body>
 </html>
